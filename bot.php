@@ -14,7 +14,7 @@ file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=Here's the weathe
 
 if (strpos($message, "/ip") === 0) {
 $q = substr($message, 4)
-$resultData = json_decode(file_get_contents($url[1].$q)) ["country"],["lat"],["lon"];
+$resultData = json_decode(file_get_contents($url[1].$q)) ["country"]["lat"]["lon"];
 file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=The Location on ".$q." : ". $resultData);
 }
 
