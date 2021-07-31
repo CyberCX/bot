@@ -11,4 +11,11 @@ $location = substr($message, 9);
 $weather = json_decode(file_get_contents($url[0].$location."&appid=e452a367436f0555945ff6107612fb88"), TRUE)["weather"][0]["main"];
 file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=Here's the weather in ".$location.": ". $weather);
 }
+
+if (strpos($message, "/ip") === 0) {
+$q = substr($message, 4)
+$resultData = json_decode(file_get_contents($url[1].$q)) ["country"],["lat"],["lon"];
+file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=The Location on ".$q." : ". $resultData);
+}
+
 ?>
