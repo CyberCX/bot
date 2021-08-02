@@ -9,8 +9,7 @@ $message = $update["message"]["text"];
 if (strpos($message, "/weather") === 0) {
 $location = substr($message, 9);
 $weather = json_decode(file_get_contents($url.$location."&appid=e452a367436f0555945ff6107612fb88"), TRUE);
-file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=Wind Speed in ".$location." : ". $weather["wind"]["speed"] . "m/s");
-file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=Here's Weather in ".$location." : " . $weather["weather"]["main"];
+$resp = $path."/sendmessage?chat_id=".$chatId;
+file_get_contents($resp . "&text=Wind Speed in the " . $location . " : " . $weather["wind"]["speed"] . "m/s";
 }
-
 ?>
